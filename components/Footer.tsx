@@ -3,7 +3,7 @@ import FacebookIcon from './icons/FacebookIcon';
 import InstagramIcon from './icons/InstagramIcon';
 
 const Footer: React.FC = () => {
-  const backgroundImageUrl = "https://p4.wallpaperbetter.com/wallpaper/59/517/97/beach-sea-sand-water-wallpaper-preview.jpg";
+  const backgroundImageUrl = "https://p4.wallpaperbetter.com/wallpaper/342/795/797/landscape-beach-nature-horizon-wallpaper-preview.jpg";
 
   return (
     <footer 
