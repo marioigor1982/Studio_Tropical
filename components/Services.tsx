@@ -40,9 +40,16 @@ const Services: React.FC = () => {
     },
   ];
 
+  const backgroundImageUrl = "https://media.istockphoto.com/id/1492826512/pt/foto/sand-texture-background-with-coconut-palm-leaves-shadow-nature-beach-sandy-with-tropical-leaf.jpg?s=612x612&w=0&k=20&c=wx1DH3aMxkemVDKKGaaow10jzmMMer4ASbZ4CqwwM1U=";
+
   return (
-    <section id="services" className="py-20 bg-brand-light">
-      <div className="container mx-auto px-6">
+    <section 
+      id="services" 
+      className="py-20 relative bg-cover bg-center"
+      style={{ backgroundImage: `url(${backgroundImageUrl})` }}
+    >
+      <div className="absolute inset-0 bg-brand-light/60"></div>
+      <div className="relative z-10 container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-serif font-bold text-brand-text">Nossos Serviços</h2>
           <p className="text-lg text-gray-600 mt-2">Dedicados a realçar sua beleza com cuidado e profissionalismo.</p>
