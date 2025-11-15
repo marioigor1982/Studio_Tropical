@@ -1,3 +1,4 @@
+
 import React from 'react';
 import FacebookIcon from './icons/FacebookIcon';
 import InstagramIcon from './icons/InstagramIcon';
@@ -17,7 +18,7 @@ const Footer: React.FC = () => {
               <a href="#" aria-label="Facebook" className="text-brand-light hover:text-brand-primary transition-colors duration-300">
                 <FacebookIcon className="w-7 h-7" />
               </a>
-              <a href="#" aria-label="Instagram" className="text-brand-light hover:text-brand-primary transition-colors duration-300">
+              <a href="https://www.instagram.com/studiobelezatropicalpg/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-brand-light hover:text-brand-primary transition-colors duration-300">
                 <InstagramIcon className="w-7 h-7" />
               </a>
             </div>
