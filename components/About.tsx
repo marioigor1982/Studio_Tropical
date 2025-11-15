@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import InstagramIcon from './icons/InstagramIcon';
 
 const About: React.FC = () => {
-  // Using direct media links for a cleaner slideshow
-  const imageUrls = [
-    "https://www.instagram.com/p/DQclspLkY64/media/",
-    "https://www.instagram.com/p/DHYu0wtR_cC/media/",
-    "https://www.instagram.com/p/DLVoymJS-k1/media/",
-    "https://www.instagram.com/p/DMi4t8ksWcB/media/",
-    "https://www.instagram.com/p/DLUx-sBoTWE/media/",
-    "https://www.instagram.com/p/DLDnN6oNtvy/media/",
+  const instagramPosts = [
+    { mediaUrl: "https://www.instagram.com/p/DLDnN6oNtvy/media/", postUrl: "https://www.instagram.com/p/DLDnN6oNtvy/" },
+    { mediaUrl: "https://www.instagram.com/p/DLUx-sBoTWE/media/", postUrl: "https://www.instagram.com/p/DLUx-sBoTWE/" },
+    { mediaUrl: "https://www.instagram.com/p/DL0iU21tRgd/media/", postUrl: "https://www.instagram.com/p/DL0iU21tRgd/" },
+    { mediaUrl: "https://www.instagram.com/p/DMi4t8ksWcB/media/", postUrl: "https://www.instagram.com/p/DMi4t8ksWcB/" },
+    { mediaUrl: "https://www.instagram.com/p/DMdvGqRuPFV/media/", postUrl: "https://www.instagram.com/p/DMdvGqRuPFV/" },
+    { mediaUrl: "https://www.instagram.com/p/DI4kRahhOcN/media/", postUrl: "https://www.instagram.com/p/DI4kRahhOcN/" },
   ];
 
   const instagramProfileUrl = "https://www.instagram.com/studiobelezatropicalpg/";
@@ -18,13 +17,13 @@ const About: React.FC = () => {
 
   useEffect(() => {
     // Preload images for smoother transitions
-    imageUrls.forEach((src) => {
+    instagramPosts.forEach((post) => {
       const img = new Image();
-      img.src = src;
+      img.src = post.mediaUrl;
     });
 
     const intervalId = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % imageUrls.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % instagramPosts.length);
     }, 5000); // Change image every 5 seconds
 
     return () => clearInterval(intervalId); // Cleanup on component unmount
@@ -49,14 +48,26 @@ const About: React.FC = () => {
               
               {/* Image Slideshow Container */}
               <div className="relative w-full aspect-square rounded-lg overflow-hidden">
-                {imageUrls.map((url, index) => (
-                    <img 
+                {instagramPosts.map((post, index) => (
+                    <a 
                       key={index}
-                      src={url}
-                      alt={`Post do Instagram ${index + 1} do Studio Beleza Tropical`}
-                      className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
+                      href={post.postUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Ver postagem ${index + 1} no Instagram`}
+                      className="absolute inset-0 transition-opacity duration-1000 ease-in-out group"
                       style={{ opacity: index === currentIndex ? 1 : 0 }}
-                    />
+                    >
+                      <img 
+                        src={post.mediaUrl}
+                        alt={`Post do Instagram ${index + 1} do Studio Beleza Tropical`}
+                        className="w-full h-full object-cover"
+                      />
+                       {/* Hover effect overlay */}
+                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                          <InstagramIcon className="w-12 h-12 text-white" />
+                      </div>
+                    </a>
                 ))}
               </div>
             </div>
