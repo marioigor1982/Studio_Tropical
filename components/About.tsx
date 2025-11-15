@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 const About: React.FC = () => {
@@ -21,7 +22,9 @@ const About: React.FC = () => {
               Nossa equipe de profissionais é altamente qualificada e está sempre pronta para oferecer uma experiência personalizada, garantindo que você saia daqui sentindo-se renovada, confiante e, claro, ainda mais linda.
             </p>
             <a 
-              href="#contact" 
+              href="https://wa.me/5599999998888"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-brand-secondary text-white font-bold px-8 py-3 rounded-full text-md hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Fale Conosco
